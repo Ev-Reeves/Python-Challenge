@@ -4,7 +4,7 @@ import os
 
 #Setting filepaths
 budget_data = os.path.join("budget_data", "/Users/evanreeves/Desktop/ucb-ber-data-pt-06-2020-u-c/02-Homework/03-Python/Python-Challenge/PyBank/Resources/budget_data.csv")
-budget_analysis = os.path.join("budget_analysis", "budget_analysis.csv")
+budget_analysis = os.path.join("budget_analysis.csv")
 
 months = []
 profit = 0
@@ -46,6 +46,13 @@ with open(budget_data) as bd:
     print("Greatest decrease in profits: " + min_month +" : " + str(max_loss))
     
     
+with open(budget_analysis, "w", newline="") as ba:
+    writer = csv.writer(ba)
+    writer.writerow(["Total months: " + str(month_span)])
+    writer.writerow(["Net profits/losses: "+ "$"+ str(net)])
+    writer.writerow(["Average change: " + "$" + str(average_change)])
+    writer.writerow(["Greatest increase in profits: " + max_month +" : " + str(max_profit)])
+    writer.writerow(["Greatest decrease in profits: " + min_month +" : " + str(max_loss)])
     
     
     
